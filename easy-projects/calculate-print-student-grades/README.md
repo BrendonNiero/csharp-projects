@@ -14,3 +14,6 @@ sua nota geral atual para a classe.
 - Experiência em operações matemáticas da sintaxe C#.
 - Declaração de variáveis string, int e decimal.
 - Eperiência com concatenação e interpolação de cadeias de caracteres.
+
+## Projeto oficial
+- https://learn.microsoft.com/pt-br/training/modules/guided-project-calculate-print-student-grades/
