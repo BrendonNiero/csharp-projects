@@ -1,38 +1,24 @@
 string studentName = "Sophia Johnson";
-string course1Name = "English 101";
-string course2Name = "Algebra 101";
-string course3Name = "Biology 101";
-string course4Name = "Computer Science I";
-string course5Name = "Psychology 101";
 
-int course1Credit = 3;
-int course2Credit = 3;
-int course3Credit = 4;
-int course4Credit = 4;
-int course5Credit = 3;
+string[] courseName = { "English 101", "Algebra 101", "Biology 101", "Computer Science I ", "Psychology 101" };
+int[] courseCredit = { 3, 3, 4, 4, 2 };
+int[] courseGrade = { 4, 3, 3, 3, 4 };
+int[] courseMultipli = { 
+        (courseGrade[0] * courseCredit[0]), 
+        (courseGrade[1] * courseCredit[1]),
+        (courseGrade[2] * courseCredit[2]),
+        (courseGrade[3] * courseCredit[3]),
+        (courseGrade[4] * courseCredit[4])
+        };
 
-int course1Grade = 4;
-int course2Grade = 3;
-int course3Grade = 3;
-int course4Grade = 3;
-int course5Grade = 4;
-
-int course1Multipli = course1Grade * course1Credit;
-int course2Multipli = course2Grade * course2Credit;
-int course3Multipli = course3Grade * course3Credit;
-int course4Multipli = course4Grade * course4Credit;
-int course5Multipli = course5Grade * course5Credit;
-
-int totalSumGrade = course1Multipli + course2Multipli + course3Multipli + course4Multipli + course5Multipli;
-int totalSumCredit = course1Credit + course2Credit + course3Credit + course4Credit + course5Credit;
+int totalSumGrade = courseMultipli[0] + courseMultipli[1] + courseMultipli[2] + courseMultipli[3] + courseMultipli[4];
+int totalSumCredit = courseCredit[0] + courseCredit[1] + courseCredit[2] + courseCredit[3] + courseCredit[4];
 decimal finalGpa = (decimal) totalSumGrade/totalSumCredit;
 
 Console.WriteLine("Course\t\t\tGrade\tCredit Hours");
 
-Console.WriteLine($"{course1Name}\t\t\t{course1Grade}\t\t{course1Credit}");
-Console.WriteLine($"{course2Name}\t\t\t{course2Grade}\t\t{course2Credit}");
-Console.WriteLine($"{course3Name}\t\t\t{course3Grade}\t\t{course3Credit}"); 
-Console.WriteLine($"{course4Name}\t{course4Grade}\t\t{course4Credit}");
-Console.WriteLine($"{course5Name}\t\t{course5Grade}\t\t{course5Credit}");
+for(int i = 0; i < 5; i++){
+    Console.WriteLine($"{courseGrade[i]}\t\t\t{courseGrade[i]}\t\t\t{courseCredit[i]}");
+};
 
 Console.WriteLine($"Final GPA:\t\t\t{Math.Round(finalGpa, 2)}");
