@@ -3,12 +3,14 @@
 int dayUntilExpiration = random.Next(12);
 int discountPercentage = 0;
 
-if(discountPercentage <= 10){
-    if(discountPercentage <= 5){
-        Console.WriteLine($"Your subscription expires in {dayUntilExpiration} days.\nRenew now and save 10%!");
-    } else if( discountPercentage == 1){
-        Console.WriteLine("Your subscription expires within a day!\nRenew now and save 20%!");
-    } else if(discountPercentage == 0){
+if(dayUntilExpiration <= 10){
+    if(dayUntilExpiration <= 5){
+        dayUntilExpiration = 10;
+        Console.WriteLine($"Your subscription expires in {dayUntilExpiration} days.\nRenew now and save {discountPercentage}%!");
+    } else if( dayUntilExpiration == 1){
+        discountPercentage = 20;
+        Console.WriteLine($"Your subscription expires within a day!\nRenew now and save {discountPercentage}%!");
+    } else if(dayUntilExpiration == 0){
         Console.WriteLine("Your subscription has expired.");
     }
     else {
