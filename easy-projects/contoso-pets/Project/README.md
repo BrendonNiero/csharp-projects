@@ -25,14 +25,14 @@ Você está trabalhando no aplicativo Contoso Pets, um aplicativo que ajuda a co
 - Exibir todos os gatos e cães que atendem às características físicas especificadas pelo usuário.
 - O código exibe as seguintes opções principais de menu para seleção pelo usuário:
 
-1 Listar todas as nossas informações atuais sobre os animais de estimação.
-2 Atribuir valores aos campos da matriz ourAnimals.
-3 Verificar se os dados de idade e descrição física dos animais estão completos.
-4 Verificar se os dados de apelido e descrição de personalidade dos animais estão completos.
-5 Editar a idade do animal.
-6 Editar a descrição de personalidade do animal.
-7 Exibir todos os gatos com uma característica especificada.
-8 Exibir todos os cães com uma característica especificada.
+1. Listar todas as nossas informações atuais sobre os animais de estimação.
+2. Atribuir valores aos campos da matriz ourAnimals.
+3. Verificar se os dados de idade e descrição física dos animais estão completos.
+4. Verificar se os dados de apelido e descrição de personalidade dos animais estão completos.
+5. Editar a idade do animal.
+6. Editar a descrição de personalidade do animal.
+7. Exibir todos os gatos com uma característica especificada.
+8.  Exibir todos os cães com uma característica especificada.
 
 - Insira o item de menu desejado ou digite "Exit" para sair do programa.
 
