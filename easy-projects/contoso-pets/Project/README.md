@@ -3,7 +3,7 @@ Você está trabalhando no aplicativo Contoso Pets, um aplicativo que ajuda a co
 
 ### Especificações do aplicativo:
 - Armazene dados do aplicativo em uma matriz de cadeia de caracteres multidimensional chamada ourAnimals.
-- A matriz ourAnimals incrui as seguintes "características de animais de estimação" para cada animal:
+- A matriz ourAnimals inclui as seguintes "características de animais de estimação" para cada animal:
  - Número de ID do animal de estimação.
  - Espécie do animal de estimação (gato ou cachorro).
  - Idade do animal de estimação (em anos).
