@@ -14,15 +14,31 @@ string menuSelection = "";
 // array used to store runtime data, there is no persisted data
 string[,] ourAnimals = new string[maxPets, 6];
 
+// Menu Inicial
+
+Console.WriteLine("Sejá bem vindo ao Contoso Pets!🎉");
+Console.WriteLine("1: Listar animais");
+Console.WriteLine("2: Cadastrar novos animais");
+Console.WriteLine("3: Deletar cadastro");
+Console.WriteLine("4: Sair");
+
 // Controle de animais
 
+/*
 Console.WriteLine("Selecione nosso menu de listagem:");
 Console.WriteLine("1: Listar Espécies");
 Console.WriteLine("2: Nomes");
 Console.WriteLine("3: Listar IDs");
 Console.WriteLine("4: Sair");
 readResult = Console.ReadLine();
+*/
 
+// Menu de cadastro
+
+
+// Menu de Listagem
+
+/*
 while(readResult != "4")
 {
     switch(readResult)
@@ -50,3 +66,5 @@ while(readResult != "4")
 
 if(readResult == "4")
     Console.WriteLine("Obrigado por visitar a Contoso Pets!");
+
+*/
