@@ -4,11 +4,10 @@ using System.Dynamic;
 public class Animal
 {
     public int Id { get; set; }
-    public string Name { get; set; } = null!;
-    public string Specie { get; set; } = null!;
-    public int Age { get; set; }
-    public string Physic { get; set; } = null!;
-    public string Personality { get; set; } = null!;
+    public string? Name { get; set; } = null!;
+    public string? Specie { get; set; } = null!;
+    public int? Age { get; set; }
+    public string? Personality { get; set; } = null!;
 }
 
 public class Program
@@ -19,18 +18,11 @@ public class Program
 
         string? animalNickname = "";
         string? animalSpecies = "";
-        int? animalId = 0;
         string? animalAge = "";
-        string? animalPhysicalDescription = "";
         string? animalPersonalityDescription = "";
-
-        int maxPets = 8;
-
         string? readResult;
 
-        string? listAnimals;
-
-        Console.WriteLine("------------------------ Sejá bem vindo ao Contoso Pets!🎉------------------------");
+        Console.WriteLine("------------------------ 🎉 Sejá bem vindo ao Contoso Pets 🎉 ------------------------");
         Console.WriteLine("1: Listar animais");
         Console.WriteLine("2: Cadastrar novos animais");
         Console.WriteLine("3: Deletar cadastro");
@@ -42,85 +34,63 @@ public class Program
             switch(readResult)
             {
                 case "1":
-                Console.WriteLine("------------------------ Selecione nosso menu de listagem 📚 ------------------------");
-                Console.WriteLine("1: Listar Espécies");
-                Console.WriteLine("2: Nomes");
-                Console.WriteLine("3: Listar IDs");
-                Console.WriteLine("4: Sair");
-                listAnimals = Console.ReadLine();
-                while(listAnimals != "4")
-                {
-                    switch(listAnimals)
+                    if(ourAnimals.Count == 0)
                     {
-                        case "1":
-                        foreach(var name in ourAnimals)
+                        Console.WriteLine("Não há nenhum cadastrado 😔");
+                    } else 
+                    {
+                        foreach(var animal in ourAnimals)
                         {
-                            Console.WriteLine(name.Name);
-                        };
-                        break;
-                        case "2":
-                        Console.WriteLine($"Nome: {animalNickname}");
-                        break;
-                        case "3":
-                        Console.WriteLine($"ID: {animalId}");
-                        break;
-                        default:
-                        Console.WriteLine("Digite um valor válido.");
-                        break;
+                            Console.WriteLine($"------------------------ 🐾 {animal.Name} 🐾 ------------------------");
+                            Console.WriteLine($"ID Cadastro: {animal.Id}");
+                            Console.WriteLine($"Nome: {animal.Name}");
+                            Console.WriteLine($"Espécie: {animal.Specie}");
+                            Console.WriteLine($"Idade: {animal.Age}");
+                            Console.WriteLine($"Personalidade: {animal.Personality}");
+                        }
                     }
-                        Console.WriteLine("------------------------ Selecione nosso menu de listagem 📚 ------------------------");
-                        Console.WriteLine("1: Listar Espécies");
-                        Console.WriteLine("2: Nomes");
-                        Console.WriteLine("3: Listar IDs");
-                        Console.WriteLine("4: Sair");
-                        listAnimals = Console.ReadLine();
-                }
                 break;
                 case "2":
-                    Console.WriteLine("Digite o nome do animal.");
+                    Console.WriteLine("Digite o nome do animal 🎀");
                     animalNickname = Console.ReadLine();
-                    Console.WriteLine("Digite a espécie do animal. (Cão, Gato...)");
+                    Console.WriteLine("Digite a espécie do animal. (Cão, Gato...) 🐱");
                     animalSpecies = Console.ReadLine();
-                    Console.WriteLine("Digite a idade do animal em anos.");
+                    Console.WriteLine("Digite a idade do animal em anos 🔞");
                     animalAge = Console.ReadLine();
-                    Console.WriteLine("Descreva o físico do seu animal.");
-                    animalPhysicalDescription = Console.ReadLine();
-                    Console.WriteLine("Descreva a personalidade do seu animal.");
+                    Console.WriteLine("Descreva a personalidade do seu animal 🍂");
                     animalPersonalityDescription = Console.ReadLine();
                     Console.WriteLine("------------------------ Confira suas informações ------------------------");
-                    Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPhysicalDescription}\n• {animalPersonalityDescription}");
+                    Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPersonalityDescription}");
                     Console.WriteLine("------------------------ Suas informações estão corretas? ------------------------");
                     Console.WriteLine("1: Sim");
                     Console.WriteLine("2: Não");
                     string ?response = Console.ReadLine();
-                    if(response == "1")
+                    if(response == "1" && animalNickname != null && animalAge != null)
                     {
+                        Random random = new Random();
                         Animal newAnimal = new Animal
                         {
-                            Id = ourAnimals.Count + 1,
+                            Id = ourAnimals.Count + random.Next(1, 99),
                             Name = animalNickname,
                             Specie = animalSpecies,
                             Age = int.Parse(animalAge),
-                            Physic = animalPhysicalDescription,
                             Personality = animalPersonalityDescription
                         };
 
                         ourAnimals.Add(newAnimal);
-                        Console.WriteLine("Animal cadastrado com sucesso!");
+                        Console.WriteLine("Animal cadastrado com sucesso! ✅");
                     } else
                     {
-                        Console.WriteLine("Digite o nome do animal.");
+                        Console.WriteLine("Digite o nome do animal 🎀");
                         animalNickname = Console.ReadLine();
-                        Console.WriteLine("Digite a espécie do animal. (Cão, Gato...)");
+                        Console.WriteLine("Digite a espécie do animal. (Cão, Gato...) 🐱");
                         animalSpecies = Console.ReadLine();
-                        Console.WriteLine("Digite a idade do animal em anos.");
+                        Console.WriteLine("Digite a idade do animal em anos 🔞");
                         animalAge = Console.ReadLine();
-                        Console.WriteLine("Descreva o físico do seu animal.");
-                        animalPhysicalDescription = Console.ReadLine();
-                        Console.WriteLine("Descreva a personalidade do seu animal.");
+                        Console.WriteLine("Descreva a personalidade do seu animal 🍂");
                         animalPersonalityDescription = Console.ReadLine();
                         Console.WriteLine("------------------------ Confira suas informações ------------------------");
-                        Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPhysicalDescription}\n• {animalPersonalityDescription}");
+                        Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPersonalityDescription}");
                         Console.WriteLine("------------------------ Suas informações estão corretas? ------------------------");
                         Console.WriteLine("1: Sim");
                         Console.WriteLine("2: Não");
@@ -128,14 +98,20 @@ public class Program
                     }
                 break;
                 case "3":
-                Console.WriteLine("Ainda não conseguimos deletar cadastros");
+                    Console.WriteLine("Insira o número ID de Cadastro do Animal:");
+                    string result = Console.ReadLine()!;
+                    if(result != null)
+                    {
+                        ourAnimals = ourAnimals.Where(animal => animal.Id != int.Parse(result)).ToList();
+                    }
+                    Console.WriteLine("Operação concluida com sucesso! 🎯");
                 break;
                 case "4":
                 Console.WriteLine("Tchau!");
                 break;
             }
 
-            Console.WriteLine("------------------------ Sejá bem vindo ao Contoso Pets!🎉------------------------");
+            Console.WriteLine("------------------------ 🎉 Sejá bem vindo ao Contoso Pets 🎉 ------------------------");
             Console.WriteLine("1: Listar animais");
             Console.WriteLine("2: Cadastrar novos animais");
             Console.WriteLine("3: Deletar cadastro");
@@ -144,6 +120,6 @@ public class Program
         }
 
         if(readResult == "4")
-            Console.WriteLine("Obrigado por visitar a Contoso Pets!");
+            Console.WriteLine("Obrigado por visitar a Contoso Pets!😊");
     }
 }
