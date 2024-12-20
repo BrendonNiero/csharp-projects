@@ -4,12 +4,12 @@ public class Program
 {
     public static void Main()
     {
-        string animalNickname = "";
-        string animalSpecies = "";
-        int animalId = 0;
-        string animalAge = "";
-        string animalPhysicalDescription = "";
-        string animalPersonalityDescription = "";
+        string? animalNickname = "";
+        string? animalSpecies = "";
+        int? animalId = 0;
+        string? animalAge = "";
+        string? animalPhysicalDescription = "";
+        string? animalPersonalityDescription = "";
 
         int maxPets = 8;
 
@@ -76,8 +76,35 @@ public class Program
                     animalPhysicalDescription = Console.ReadLine();
                     Console.WriteLine("Descreva a personalidade do seu animal.");
                     animalPersonalityDescription = Console.ReadLine();
-                    Console.WriteLine("Confira se suas informações estão corretas:");
+                    Console.WriteLine("------------------------ Confira suas informações ------------------------");
                     Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPhysicalDescription}\n• {animalPersonalityDescription}");
+                    Console.WriteLine("------------------------ Suas informações estão corretas? ------------------------");
+                    Console.WriteLine("1: Sim");
+                    Console.WriteLine("2: Não");
+                    string ?response = Console.ReadLine();
+                    if(response == "1")
+                    {
+                        
+                        Console.WriteLine("Animal cadastrado com sucesso!");
+                    } else
+                    {
+                        Console.WriteLine("Digite o nome do animal.");
+                        animalNickname = Console.ReadLine();
+                        Console.WriteLine("Digite a espécie do animal. (Cão, Gato...)");
+                        animalSpecies = Console.ReadLine();
+                        Console.WriteLine("Digite a idade do animal em anos.");
+                        animalAge = Console.ReadLine();
+                        Console.WriteLine("Descreva o físico do seu animal.");
+                        animalPhysicalDescription = Console.ReadLine();
+                        Console.WriteLine("Descreva a personalidade do seu animal.");
+                        animalPersonalityDescription = Console.ReadLine();
+                        Console.WriteLine("------------------------ Confira suas informações ------------------------");
+                        Console.WriteLine($"• {animalNickname}\n• {animalSpecies}\n• {animalAge}\n• {animalPhysicalDescription}\n• {animalPersonalityDescription}");
+                        Console.WriteLine("------------------------ Suas informações estão corretas? ------------------------");
+                        Console.WriteLine("1: Sim");
+                        Console.WriteLine("2: Não");
+                        response = Console.ReadLine();
+                    }
                 break;
                 case "3":
                 Console.WriteLine("Ainda não conseguimos deletar cadastros");
@@ -103,9 +130,9 @@ public class Program
 public class Animal 
 {
     public int Id { get; set; }
-    public string NickName { get; set; }
-    public string Specie { get; set; }
+    public string NickName { get; set; } = null!;
+    public string Specie { get; set; } = null!;
     public int Age  { get; set; }
-    public string PhysicalDescription { get; set; }
-    public string PersonalityDescription { get; set; }
+    public string PhysicalDescription { get; set; } = null!;
+    public string PersonalityDescription { get; set; } = null!;
 }
