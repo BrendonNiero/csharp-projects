@@ -1,56 +1,45 @@
 # Contoso Pets
-Você está trabalhando no aplicativo Contoso Pets, um aplicativo que ajuda a colocar animais de estimação em novas casas.
+### Tema
+Contoso pets é um projeto onde você pode cadastrar novos animais e ter um controle de animais em petshops ongs, sítios e outros. 
+### Sobre
+Vamos estar utilizando o ReadLine para pegar a entrada do usuário e vamos trabalhar em cima disso construindo menus interativos com funções de listagem, cadastro e exclusão de cadastro.
 
-### Especificações do aplicativo:
-- Armazene dados do aplicativo em uma matriz de cadeia de caracteres multidimensional chamada ourAnimals.
-- A matriz ourAnimals inclui as seguintes "características de animais de estimação" para cada animal:
- - Número de ID do animal de estimação.
- - Espécie do animal de estimação (gato ou cachorro).
- - Idade do animal de estimação (em anos).
- - Descrição das condições/características físicas do animal de estimação.
- - Descrição da personalidade do animal de estimação.
- - Apelido do animal de estimação.
- - Implemente um conjunto de dados de exemplo que represente os cães e gatos atualmente sob seus cuidados.
- - Exiba opções de menu para acessar os principais recursos do aplicativo.
- - Os principais recursos habilitam as seguintes tarefas
- listar as informações de animais de estimação para todos os animais da matriz ourAnimals.
- Adicionar novos animais à matriz ourAnimals. As seguintes condições se aplicam:
-    - A espécie do animal de estimação (cão ou gato) deve ser informada quando um novo animal é adicionado à matriz ourAnimals.
-    - Uma ID de animal de estimação deve ser gerada programaticamente quando um novo animal é adicionado à matriz ourAnimals.
-    Algumas características físicas do animal de estimação podem ser desconhecidas até o exame de um veterinário. Por exemplo: didade, raça e status de castração.
-    - O apelido e a personalidade do animal de estimação podem ser desconhecidos logo que ele chega.
-- Verificar se os dados de idade e descrição física dos animais estão completos. Isso pode exigir o exame de um veterinário.
-- Verificar se os dados de apelido e descrição da personalidade dos animais estão completos (isso pode exigir que a equipe conheça melhor o animal de estimação).
-- Alterar a idade do animal (se a data de nascimento dele for conhecida e ele fizer aniversário enquanto estiver sob cuidados).
-- Exibir todos os gatos e cães que atendem às características físicas especificadas pelo usuário.
-- O código exibe as seguintes opções principais de menu para seleção pelo usuário:
+# Objetivo
+Treinar funcionamento da instrução while, capturar entrada do usuário e trabalhar com arrays.
 
-1. Listar todas as nossas informações atuais sobre os animais de estimação.
-2. Atribuir valores aos campos da matriz ourAnimals.
-3. Verificar se os dados de idade e descrição física dos animais estão completos.
-4. Verificar se os dados de apelido e descrição de personalidade dos animais estão completos.
-5. Editar a idade do animal.
-6. Editar a descrição de personalidade do animal.
-7. Exibir todos os gatos com uma característica especificada.
-8.  Exibir todos os cães com uma característica especificada.
+## Classe Animal
+Vamos criar uma classe animal que vai conter um id, nome, espécie, idade e personalidade. 
 
-- Insira o item de menu desejado ou digite "Exit" para sair do programa.
+Com isso podemos já criar o nosso array que vai conter nossos animais cadastrados:
 
-Código inicial
 ``` bash
-// the ourAnimals array will store the following: 
-string animalSpecies = "";
-string animalID = "";
-string animalAge = "";
-string animalPhysicalDescription = "";
-string animalPersonalityDescription = "";
-string animalNickname = "";
-
-// variables that support data entry
-int maxPets = 8;
-string? readResult;
-string menuSelection = "";
-
-// array used to store runtime data, there is no persisted data
-string[,] ourAnimals = new string[maxPets, 6];
+    List<Animal> ourAnimals = new List<Animal>();
 ```
+
+## Cadastrando um novo animal
+Após pegar a entrada do usuário e armazenar ela dentro de uma variável temporária. Vamos jogar ela dentro de um objeto:
+``` bash
+    Animal newAnima = new Animal
+    {
+    	Id = ourAnimals.Count + random.Next(1, 99),
+    	Name = animalNickName,
+    	Specie = animalSpecies,
+    	Age = int.Parse(animalAge),
+    	Personality = animalPersonalityDescription
+    };
+```
+Após isso vamos jogar essa dentro do nosso array:
+``` bash
+    ourAnimals.Add(newAnimal);
+```
+
+## Deletar por ID
+Para isso vamos capturar o id selecionado pelo usuário e utilizar o método WHERE para buscar o ID selecionado:
+
+``` bash
+    ourAnimals = ourAnimals.Where(animal => animal.Id != int.Parse(result)).ToList();
+```
+Aqui estamos criando um novo array que contém todos os itens, menos (≠) o que teve o ID selecionado.
+
+## Listagem de cadastro
+Para isso vamos utilizar uma estrutura de repetição foreach. Bem simples.
