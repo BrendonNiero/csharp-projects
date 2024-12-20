@@ -1,9 +1,22 @@
 ﻿using System;
+using System.Dynamic;
+
+public class Animal
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = null!;
+    public string Specie { get; set; } = null!;
+    public int Age { get; set; }
+    public string Physic { get; set; } = null!;
+    public string Personality { get; set; } = null!;
+}
 
 public class Program
 {
     public static void Main()
     {
+        List<Animal> ourAnimals = new List<Animal>();
+
         string? animalNickname = "";
         string? animalSpecies = "";
         int? animalId = 0;
@@ -15,12 +28,7 @@ public class Program
 
         string? readResult;
 
-        string[,] ourAnimals = new string[maxPets, 6];
-
         string? listAnimals;
-
-        Console.WriteLine(ourAnimals);
-
 
         Console.WriteLine("------------------------ Sejá bem vindo ao Contoso Pets!🎉------------------------");
         Console.WriteLine("1: Listar animais");
@@ -45,7 +53,10 @@ public class Program
                     switch(listAnimals)
                     {
                         case "1":
-                        Console.WriteLine($"Espécie: {animalSpecies}");
+                        foreach(var name in ourAnimals)
+                        {
+                            Console.WriteLine(name.Name);
+                        };
                         break;
                         case "2":
                         Console.WriteLine($"Nome: {animalNickname}");
@@ -84,7 +95,17 @@ public class Program
                     string ?response = Console.ReadLine();
                     if(response == "1")
                     {
-                        
+                        Animal newAnimal = new Animal
+                        {
+                            Id = ourAnimals.Count + 1,
+                            Name = animalNickname,
+                            Specie = animalSpecies,
+                            Age = int.Parse(animalAge),
+                            Physic = animalPhysicalDescription,
+                            Personality = animalPersonalityDescription
+                        };
+
+                        ourAnimals.Add(newAnimal);
                         Console.WriteLine("Animal cadastrado com sucesso!");
                     } else
                     {
@@ -125,14 +146,4 @@ public class Program
         if(readResult == "4")
             Console.WriteLine("Obrigado por visitar a Contoso Pets!");
     }
-}
-
-public class Animal 
-{
-    public int Id { get; set; }
-    public string NickName { get; set; } = null!;
-    public string Specie { get; set; } = null!;
-    public int Age  { get; set; }
-    public string PhysicalDescription { get; set; } = null!;
-    public string PersonalityDescription { get; set; } = null!;
 }
